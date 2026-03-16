@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Let</title>
+
+    <style>
+        #texto1 {
+            cursor: text;
+        }
+
+        .botao {
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            color: rgb(28, 110, 80);
+            background-color: bisque;
+            border-radius: 10px;
+            font-size: medium;
+            font-weight: 900;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .botao:hover {
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            color: bisque;
+            background-color: rgb(28, 110, 80);
+            border-radius: 10px;
+            font-size: medium;
+            font-weight: 900;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <p> 
+            Digite a primeira informação:
+            <input type="text" id="texto1">
+        </p>
+
+        <input type="submit" value="mostrar" class="botao">
+    </form>
+
+    <p id="resposta1"></p>
+
+
+    <script>
+
+        const frm = document.getElementById("form")
+        const resp1 = document.getElementById("resposta1")
+
+        frm.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+            const text1 = frm.texto1.value;
+            resp1.innerText = text1;
+            frm.reset();
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JS Basico</title>
+
+    <style>
+        p {
+            color: brown;
+            border: 1px solid black;
+            padding: 10px;
+            height: 20px;
+            width: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: large;
+            border-radius: 10px;
+        }
+
+        p:hover {
+            color: brown;
+            border: 1px solid black;
+            padding: 15px;
+            height: 20px;
+            width: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: large;
+            font-weight: 900;
+            border-radius: 10px;
+            border-bottom: 5px solid black;
+            text-shadow: 0 0 2px black;
+        }
+    </style>
+</head>
+<body>
+    <p id="palavra"></p>
+    
+        <script>
+            alert('Olá Mundo')
+            const palavra = document.getElementById("palavra")
+
+            palavra.innerText="Esse é meu primeiro texto com JS e com HTML"
+        </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #frm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 400px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <form id="frm">
+        <label>
+            Digite o primeiro número:
+            <input type="number" required id="numero1">
+        </label>
+        <label>
+            Digite o segundo número:
+            <input type="number" required id="numero2"> 
+        </label>
+
+        <input type="submit" value="Somar">
+
+
+        <p id="respostaSoma"></p>
+    </form>
+
+
+    <script>
+        const frm = document.getElementById("frm") // Declara uma constante e seleciona o elemento do DOM
+        const resp = document.getElementById("respostaSoma") // Cria uma variável da resposta
+
+        frm.addEventListener('submit', (e)=> { // O que essa linha faz é adicionar um ouvinte (listener) que fica "escutando" para ver se o evento aconteceu para disparar uma função.
+            e.preventDefault() // Previne a ação padrão do submit - recarregamento da página
+
+            const number1 = Number(frm.numero1.value) // Pega o valor colocado no input e transforma em número
+            const number2 = Number(frm.numero2.value) // Pega o valor colocado no input e transforma em número
+
+            const soma = number1 + number2 // variável que soma ambos números
+
+            resp.innerText = `A soma  de ambos os números é: ${soma}` // Escreve no resp o valor da soma
+            frm.reset()
+        })
+    </script>
+
+</body>
+</html>
