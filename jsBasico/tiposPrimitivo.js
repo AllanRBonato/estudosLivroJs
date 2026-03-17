@@ -15,9 +15,9 @@ console.log(typeof aprovado);
 
 
 /*
-    String      - Texto ou palavra 
-    number      - Número
-    underfined  - Não aponta local na memória
-    Null        - Não aponta local na memória
-    Boolean     - Verdadeiro ou Falso
+    String      - Texto ou palavra. 
+    number      - Número.
+    underfined  - Não aponta local na memória - Não inicializa uma variável.
+    Null        - Não aponta local na memória.
+    Boolean     - Verdadeiro ou Falso - Valor lógico.
 */
