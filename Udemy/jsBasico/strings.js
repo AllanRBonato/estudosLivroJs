@@ -38,3 +38,7 @@ console.log(umaString.slice(-5, -1));
 console.log(umaString.split('r'));
 
 console.log(umaString.split(' ', 2));
+
+console.log(umaString.toUpperCase()); // Deixar todo maiusculo e é uma função 
+
+console.log(umaString.toLowerCase()); // deixa tudo minusculo e também é uma função 
