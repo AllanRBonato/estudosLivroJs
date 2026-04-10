@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="frm">
+        <label id="texto">
+            <input type="text" name="Escreva o nome" id="textoNome">
+        </label>
+
+        <label id="botao">
+            <input type="submit" value="Enviar">
+        </label>
+    </form>
+
+    <h2 id="resposta"></h2>
+    <script>
+        const frm = document.getElementById('frm')
+        const resposta = document.getElementById('resposta')
+
+        frm.addEventListener('submit', (e )=> {
+            e.preventDefault()
+
+            const nome = frm.textoNome.value;
+
+            resposta.innerText = nome;
+        })
+    </script>
+</body>
+
+</html>
