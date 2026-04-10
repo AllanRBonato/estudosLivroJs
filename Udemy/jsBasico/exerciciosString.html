@@ -19,17 +19,34 @@
         </label>
     </form>
 
-    <h2 id="resposta"></h2>
+    <h2 id="mostraNome"></h2>
+    <h2 id="resp1"></h2>
+    <h2 id="resp2"></h2>
+    <h2 id="resp3"></h2>
+    <h2 id="resp4"></h2>
+    <h2 id="resp5"></h2>
     <script>
-        const frm = document.getElementById('frm')
-        const resposta = document.getElementById('resposta')
+        const frm = document.getElementById('frm');
+        const mostraNome = document.getElementById('mostraNome');
+        const resp1 = document.getElementById('resp1');
+        const resp2 = document.getElementById('resp2');
+        const resp3 = document.getElementById('resp3');
+        const resp4 = document.getElementById('resp4');
+        const resp5 = document.getElementById('resp5');
 
         frm.addEventListener('submit', (e )=> {
-            e.preventDefault()
+            e.preventDefault();
 
             const nome = frm.textoNome.value;
 
-            resposta.innerText = nome;
+
+
+            mostraNome.innerText = nome;
+            resp1.innerText = ``;
+            resp2.innerText = ``;
+            resp3.innerText = ``;
+            resp4.innerText = ``;
+            resp5.innerText = ``;
         })
     </script>
 </body>
