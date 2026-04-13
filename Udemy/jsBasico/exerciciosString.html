@@ -25,6 +25,8 @@
     <h2 id="resp3"></h2>
     <h2 id="resp4"></h2>
     <h2 id="resp5"></h2>
+    <h2 id="resp6"></h2>
+    <h2 id="resp7"></h2>
     <script>
         const frm = document.getElementById('frm');
         const mostraNome = document.getElementById('mostraNome');
@@ -33,6 +35,8 @@
         const resp3 = document.getElementById('resp3');
         const resp4 = document.getElementById('resp4');
         const resp5 = document.getElementById('resp5');
+        const resp6 = document.getElementById('resp6');
+        const resp7 = document.getElementById('resp7');
 
         frm.addEventListener('submit', (e )=> {
             e.preventDefault();
@@ -41,12 +45,14 @@
 
 
 
-            mostraNome.innerText = nome;
-            resp1.innerText = ``;
-            resp2.innerText = ``;
-            resp3.innerText = ``;
-            resp4.innerText = ``;
-            resp5.innerText = ``;
+            mostraNome.innerText = `O seu nomer é: ${nome}\n`;
+            resp1.innerText = `A segunda letra do seu nome é: ${nome.slice(1, 2)} `;
+            resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nome.indexOf('allan')}`;
+            resp3.innerText = `Qual o último índice de letra a no seu nome: ${nome.search(21)}`;
+            resp4.innerText = `As últimas 2 letras do seu nome são: ${nome.slice(20, 22)}`;
+            resp5.innerText = `As palavras do seu nome são: `;
+            resp6.innerText = `Seu nome com letras maiúsculas: ${nome.toUpperCase()}`;
+            resp7.innerText = `Seu nome com letras minúscuças: ${nome.toLowerCase()}`;
         })
     </script>
 </body>
