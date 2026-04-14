@@ -45,14 +45,14 @@
 
 
 
-            mostraNome.innerText = `O seu nomer é: ${nome}\n`;
+            mostraNome.innerText = `O seu nome é: ${nome}\n`;
             resp1.innerText = `A segunda letra do seu nome é: ${nome.slice(1, 2)} `;
-            resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nome.indexOf('allan')}`;
-            resp3.innerText = `Qual o último índice de letra a no seu nome: ${nome.search(21)}`;
-            resp4.innerText = `As últimas 2 letras do seu nome são: ${nome.slice(20, 22)}`;
-            resp5.innerText = `As palavras do seu nome são: `;
+            resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nome.indexOf('A')}`;
+            resp3.innerText = `Qual o último índice de letra a no seu nome: ${nome.lastIndexOf('a')}`;
+            resp4.innerText = `As últimas 2 letras do seu nome são: ${nome.slice(20, 19)}`;
+            resp5.innerText = `As palavras do seu nome são: ${nome.slice(0, 5, 7,13)}`;
             resp6.innerText = `Seu nome com letras maiúsculas: ${nome.toUpperCase()}`;
-            resp7.innerText = `Seu nome com letras minúscuças: ${nome.toLowerCase()}`;
+            resp7.innerText = `Seu nome com letras minúsculas: ${nome.toLowerCase()}`;
         })
     </script>
 </body>
