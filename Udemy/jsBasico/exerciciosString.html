@@ -20,6 +20,7 @@
     </form>
 
     <h2 id="mostraNome"></h2>
+    <h2 id="resp0"></h2>
     <h2 id="resp1"></h2>
     <h2 id="resp2"></h2>
     <h2 id="resp3"></h2>
@@ -30,6 +31,7 @@
     <script>
         const frm = document.getElementById('frm');
         const mostraNome = document.getElementById('mostraNome');
+        const resp0 = document.getElementById('resp0');
         const resp1 = document.getElementById('resp1');
         const resp2 = document.getElementById('resp2');
         const resp3 = document.getElementById('resp3');
@@ -41,16 +43,18 @@
         frm.addEventListener('submit', (e )=> {
             e.preventDefault();
 
-            const nome = frm.textoNome.value;
+            const nome = frm.textoNome.value.trim();
 
-
+            const nomeMinuscula = nome.toLowerCase();
 
             mostraNome.innerText = `O seu nome é: ${nome}\n`;
+            resp0.innerText = `Seu nome  tem ${nome.length} letras`;
             resp1.innerText = `A segunda letra do seu nome é: ${nome.slice(1, 2)} `;
-            resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nome.indexOf('A')}`;
-            resp3.innerText = `Qual o último índice de letra a no seu nome: ${nome.lastIndexOf('a')}`;
-            resp4.innerText = `As últimas 2 letras do seu nome são: ${nome.slice(20, 19)}`;
-            resp5.innerText = `As palavras do seu nome são: ${nome.slice(0, 5, 7,13)}`;
+            resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nomeMinuscula.indexOf('a')}`;
+            resp3.innerText = `Qual o último índice de letra a no seu nome: ${nomeMinuscula.lastIndexOf('a')}`;
+            resp4.innerText = `As últimas 3 letras do seu nome são: ${nome.slice(-3)}`;
+            resp5.innerText = `As palavras do seu nome são: ${nome.split(' ').join(' - ')}`;
+            // resp5.innerText = `As palavras do seu nome são: ${nome.split(' ')}`; Tem essa forma de retonar as palvras de todo o texto com base no espaçamento, porem ele retornar como um array separado com , - Porem a forma de cima separa com carectere especial e com espaçamento
             resp6.innerText = `Seu nome com letras maiúsculas: ${nome.toUpperCase()}`;
             resp7.innerText = `Seu nome com letras minúsculas: ${nome.toLowerCase()}`;
         })
