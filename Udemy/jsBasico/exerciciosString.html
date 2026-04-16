@@ -52,7 +52,7 @@
             resp1.innerText = `A segunda letra do seu nome é: ${nome.slice(1, 2)} `;
             resp2.innerText = `Qual o primeiro índice da letra a no seu nome: ${nomeMinuscula.indexOf('a')}`;
             resp3.innerText = `Qual o último índice de letra a no seu nome: ${nomeMinuscula.lastIndexOf('a')}`;
-            resp4.innerText = `As últimas 3 letras do seu nome são: ${nome.slice(-3)}`;
+            resp4.innerText = `As últimas 3 letras do seu nome são: ${nome.slice(-3, nome.length)}`;
             resp5.innerText = `As palavras do seu nome são: ${nome.split(' ').join(' - ')}`;
             // resp5.innerText = `As palavras do seu nome são: ${nome.split(' ')}`; Tem essa forma de retonar as palvras de todo o texto com base no espaçamento, porem ele retornar como um array separado com , - Porem a forma de cima separa com carectere especial e com espaçamento
             resp6.innerText = `Seu nome com letras maiúsculas: ${nome.toUpperCase()}`;
