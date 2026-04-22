@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="numerosMath">
+        <label>
+            <input type="number" id="numeroDigitado">
+        </label>
+
+        <label>
+            <input type="submit" value="Mostrar respostas">
+        </label>
+    </form>
+    <h1 id="seuNumero"></h1>
+    <h2 id="raizQuadrada"></h2>
+    <h2 id="eInteiro"></h2>
+    <h2 id="eNan"></h2>
+    <h2 id="paraBaixo"></h2>
+    <h2 id="paraCima"></h2>
+    <h2 id="duasCasasDecimais"></h2>
+
+    <script>
+        const frm = document.getElementById('numerosMath');
+        const seuNumero = document.getElementById('seuNumero')
+        const raiz = document.getElementById('raizQuadrada');
+        const inteiro = document.getElementById('eInteiro');
+        const nan = document.getElementById('eNan');
+        const baixo = document.getElementById('paraBaixo');
+        const cima = document.getElementById('paraCima');
+        const duasCasas = document.getElementById('duasCasasDecimais');
+
+        frm.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const numeroDigitado = Number(frm.numeroDigitado.value);
+
+            seuNumero.innerText = `Seu número é: ${numeroDigitado}`;
+
+            console.log(numeroDigitado);
+
+            raiz.innerText = `A raiz quadrada do seu número é ${numeroDigitado ** 0.5}`;
+            inteiro.innerText = `O número é inteiro: ${Number.isInteger(numeroDigitado)}`;
+            nan.innerText = `O número é Nan: ${Number.isNaN(numeroDigitado)}`;
+            baixo.innerText = `Arredondamento para baixo: ${Math.floor(numeroDigitado)}`;
+            cima.innerText = `Arredondamento para cima: ${Math.ceil(numeroDigitado)}`;
+            duasCasas.innerText = `Com duas casas decimais: ${numeroDigitado.toFixed(2)}`;
+        })
+    </script>
+</body>
+</html>
