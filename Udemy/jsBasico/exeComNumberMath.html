@@ -49,6 +49,31 @@
             cima.innerText = `Arredondamento para cima: ${Math.ceil(numeroDigitado)}`;
             duasCasas.innerText = `Com duas casas decimais: ${numeroDigitado.toFixed(2)}`;
         })
+
+
+
+        function tiposDadosNumeros(num) {
+            return {
+                raiz: num ** 0.5,
+                inteiro: Number.isInteger(num),
+                nan: Number.isNaN(num),
+                baixo: Math.floor(num),
+                cima: Math.ceil(num),
+                duasCasas: num.toFixed(2)
+            };
+        }
+
+        frm.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const numeroDigitado = Number(frm.numeroDigitado.value);
+
+            const resultado = tiposDadosNumeros(numeroDigitado);
+
+
+            raiz.innerText = `A raiz é: ${resultado.raiz}`;
+            inteir
+        })
     </script>
 </body>
 </html>
