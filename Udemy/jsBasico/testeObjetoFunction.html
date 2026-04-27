@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste criar pessoat</title>
+</head>
+
+<body>
+    <form id="formCriarPessoas">
+        <label>
+            Digite o Nome:
+            <input type="text" id="valorNome">
+        </label>
+        <label>
+            Digite seu sobrenome:
+            <input type="text" id="valorSobrenome">
+        </label>
+        <label>
+            Digite Idade:
+            <input type="number" id="valorIdade">
+        </label>
+
+        <input type="submit" value="Criar">
+    </form>
+    <h2 id="criarPessoa"></h2>
+
+    <script>
+        const frm = document.querySelector('#formCriarPessoas');
+        const criouPessoa = document.querySelector('#criarPessoa');
+
+        const pessoas = [];
+
+        function pessoa(nome, sobrenome, idade) {
+            return {
+                nome,
+                sobrenome,
+                idade
+            }
+        }
+        
+        frm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const valorNome = document.querySelector('#valorNome').value;
+            const valorSobrenome = document.querySelector('#valorSobrenome').value;
+            const valorIdade = Number(document.querySelector('#valorIdade').value);
+            
+            const novaPessoa = pessoa(valorNome, valorSobrenome, valorIdade);
+            
+            pessoas.push(novaPessoa);
+            
+            mostrarPessoas();
+            
+            frm.reset();
+        });
+        
+        function mostrarPessoas() {
+            criouPessoa.innerHTML = ''; // Limpa o conteudo anterior
+
+            pessoas.forEach((p, index) => { // Percorrendo o array -> p - cada pessoa / index - posição (0,1,2,3.....)
+                criouPessoa.innerHTML +=
+                    `${index + 1}. ${p.nome} ${p.sobrenome}, ${p.idade} anos <br>`;
+            });
+        }
+    </script>
+</body>
+
+</html>
