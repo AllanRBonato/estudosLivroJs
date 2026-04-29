@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+<body>
+    <form id="frm">
+        <label>
+            Nome:
+            <input type="text" name="input_nome" id="input_nome">
+        </label>
+        <label>
+            Sobrenome:
+            <input type="text" name="input_sobrenome" id="input_sobrenome">
+        </label>
+        <label>
+            Peso:
+            <input type="number" name="input_peso" id="input_peso">
+        </label>
+        <label>
+            Altura:
+            <input type="text" name="input_altura" id="input_altura">
+        </label>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <p id="view_dados"></p>
+
+    <script>
+        // 1. CAPTURA DOS ELEMENTOS DO HTML
+        // Pegamos o formulário e o local onde os dados vão aparecer para podermos manipulá-los no JavaScript.
+        const frm = document.querySelector('#frm');
+        const viewDados = document.querySelector('#view_dados');
+
+        // 2. CRIAÇÃO DA LISTA (ARRAY)
+        // Este array vazio vai guardar todas as pessoas (objetos) que cadastrarmos.
+        const pessoas = [];
+
+        // 3. FUNÇÃO PARA CRIAR O OBJETO
+        // Essa função recebe os dados avulsos e retorna um objeto empacotadinho com as propriedades.
+        // Como o nome do parâmetro é igual ao nome da chave (ex: nome: nome), podemos usar essa sintaxe curta.
+        function dadosPessoas(nome, sobrenome, peso, altura) {
+            return {
+                nome,
+                sobrenome,
+                peso,
+                altura
+            }
+        }
+
+        // 4. EVENTO DE ENVIO DO FORMULÁRIO
+        // Fica "escutando" o formulário. Toda vez que clicarmos em "Enviar" (submit), o código abaixo será executado.
+        frm.addEventListener('submit', (e) => {
+
+            // Previne o comportamento padrão do formulário, que é recarregar a página ao ser enviado.
+            e.preventDefault();
+
+            // Captura os valores que o usuário digitou dentro dos inputs naquele momento.
+            const dadoNome = document.querySelector('#input_nome').value;
+            const dadoSobrenome = document.querySelector('#input_sobrenome').value;
+            
+            // Usamos o Number() para converter o texto do input em um número real para o JavaScript.
+            const dadoPeso = Number(document.querySelector('#input_peso').value);
+            const dadoAltura = Number(document.querySelector('#input_altura').value);
+
+            // Chamamos a nossa função para transformar os dados capturados em um objeto.
+            const valoresPessoa = dadosPessoas(dadoNome, dadoSobrenome, dadoPeso, dadoAltura);
+            
+            // Pegamos o objeto recém-criado e o "empurramos" (push) para dentro da nossa lista (array) de pessoas.
+            pessoas.push(valoresPessoa);
+
+            // Chamamos a função que pega a lista atualizada e mostra na tela.
+            mostrarDadosPessoas();
+
+            // Limpa todos os campos do formulário para o usuário poder digitar a próxima pessoa.
+            frm.reset();
+        });
+
+        // 5. FUNÇÃO PARA MOSTRAR OS DADOS NA TELA
+        function mostrarDadosPessoas() {
+            // Limpa o conteúdo anterior da tela toda vez que a função roda. 
+            // Sem isso, a lista inteira seria duplicada a cada novo cadastro.
+            viewDados.innerHTML = ''; 
+
+            // Passa por cada pessoa (p) dentro da lista (pessoas).
+            // O 'index' é a posição dela na lista (0, 1, 2...).
+            pessoas.forEach((p, index) => {
+                // O += junta (concatena) o texto novo com o que já foi gerado pelos ciclos anteriores do forEach.
+                viewDados.innerHTML +=
+                `${index + 1} - ${p.nome} ${p.sobrenome}, Peso: ${p.peso} Kg - Altura: ${p.altura} m. <br>`;
+            });
+        }
+
+    </script>
+</body>
+</html>
