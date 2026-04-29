@@ -33,17 +33,17 @@ const prompt = require('prompt-sync')();
 
 // }
 
-// function criaPessoas() {
-//     const valorNome = prompt('Digite seu nome: ');
-//     const valorSobrenome = prompt('Digite seu sobrenome: ');
-//     const valorIdade = Number(prompt('Digite sua idade: '));
+function criaPessoas() {
+    const valorNome = prompt('Digite seu nome: ');
+    const valorSobrenome = prompt('Digite seu sobrenome: ');
+    const valorIdade = Number(prompt('Digite sua idade: '));
 
-//     const pessoaCriada = pessoas(valorNome, valorSobrenome, valorIdade); // aqui agora salva o objeto que a primeira função controi.
+    const pessoaCriada = pessoas(valorNome, valorSobrenome, valorIdade); // aqui agora salva o objeto que a primeira função controi.
 
-//     return pessoaCriada;
-// }
+    return pessoaCriada;
+}
 
-// console.log(criaPessoas());
+console.log(criaPessoas());
 
 
 
