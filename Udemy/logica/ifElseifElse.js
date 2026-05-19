@@ -1,4 +1,5 @@
 // Disviar o fluxo da aplicação quando necessário
+// Não pode usar um else sem ter um if ou else if antes, e somente um else por bloco
 
 
 /*
