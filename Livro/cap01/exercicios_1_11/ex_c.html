@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor descontou ou parcelado</title>
+</head>
+<body>
+    <script>
+        const valorTotal = parseFloat(prompt('Digite o valor total: R$'));
+
+        const valorDescontoAvista = valorTotal - (valorTotal * 0.10);
+        const valorParcelado = valorTotal / 3;
+
+        alert(`O valor total é R$${valorTotal.toFixed(2)}\nÀ vista: R$${valorDescontoAvista.toFixed(2)}\nOu 3x de R$${valorParcelado}`)
+    </script>
+</body>
+</html>

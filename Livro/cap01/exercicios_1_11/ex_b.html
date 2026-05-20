@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor dividido por cliente</title>
+</head>
+<body>
+    <script>
+        const valorTotal = parseFloat(prompt('Digite o valor total R$: '));
+        const quantidadeDeClientes = Number(prompt('Digite a quantidade de clientes: '));
+
+        const valorPorPessoa = valorTotal / quantidadeDeClientes;
+
+        alert(`O valor total é de R$${valorTotal.toFixed(2)} e dividido por ${quantidadeDeClientes} fica por R$${valorPorPessoa.toFixed(2)} por pessoa.`)
+    </script>
+</body>
+</html>
