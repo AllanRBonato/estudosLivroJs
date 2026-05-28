@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revendedora de carros</title>
+</head>
+<body>
+    <h1>Revenda de Veículos JS</h1>
+    <form>
+        <label>
+            Veículo:
+            <input type="text" name="veiculo" id="inNomeVeiculo">
+        </label>
+        <label>
+            Preço: 
+            <input type="text" name="Preço" id="inPreco">
+        </label>
+
+        <input type="submit" value="Ver Opeções de pagamento">
+    </form>
+    <h3 id="opecoes"></h3>
+
+
+    <script>
+        const frm = document.querySelector('form');
+        const resposta = document.getElementById('opecoes');
+
+        frm.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+            const nomeVeiculo = frm.inNomeVeiculo.value;
+            const precoVeiculo = (frm.inPreco.value);
+
+            const metadeDeEntrada = precoVeiculo * 0.5;
+            const valorParcelas = parseFloat(precoVeiculo * 0.5) / 12;
+
+            resposta.innerText = `Promoção: ${nomeVeiculo}\nEntrada: R$: ${metadeDeEntrada.toFixed(2)}\n+12x de R$: ${valorParcelas.toFixed(2)}`;
+        })
+    </script>
+</body>
+</html>

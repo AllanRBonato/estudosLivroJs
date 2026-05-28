@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2.1</title>
+</head>
+<body>
+    
+    <h1>Progrma Olá você!</h1>
+    <form>
+        <p>
+            Nome:
+            <input type="text" id="inNome">
+            <input type="submit" value="Mostrar">
+        </p>
+    </form>
+    <h3></h3>
+
+    <script>
+        const frm = document.querySelector('form');
+        const resposta = document.querySelector('h3');
+
+        frm.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+            const nome = frm.inNome.value;
+            resposta.innerText = `Olá, ${nome}`;
+        })
+    </script>
+</body>
+</html>

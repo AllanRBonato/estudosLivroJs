@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+</head>
+<body>
+    <h1>Cinema JS: Filmes em Cartaz</h1>
+    <form>
+        <label>
+            Título do Filme:
+            <input type="text" name="nomeFilme" id="inNomeFilme">
+        </label>
+        <label>
+            Duração (min):
+            <input type="text" name="tempo" id="inDuracaoFilme" required>
+        </label>
+        <input type="submit" value="Converter em Horas e Minutos">
+
+        <h2 id="nomeDoFilme"></h2>
+        <h2 id="tempoEmHoras"></h2>
+    </form>
+
+    <script>
+        const frm = document.querySelector('form');
+        const respNomeDoFilme = document.getElementById('nomeDoFilme');
+        const respTempoEmHoras = document.getElementById('tempoEmHoras');
+
+        frm.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+            const nomeFilme = frm.inNomeFilme.value
+            const tempoEmHoras = Number(frm.inDuracaoFilme.value)
+
+            const hora = Math.floor(tempoEmHoras / 60);
+            const minutos = tempoEmHoras % 60;
+
+            respNomeDoFilme.innerText = `Nome do filme: ${nomeFilme}`;
+            respTempoEmHoras.innerText = `Tempo do filme: ${hora}Hora(s) e ${minutos}Minuto(s)`;
+            console.log(hora);
+        })
+    </script>
+</body>
+</html>
