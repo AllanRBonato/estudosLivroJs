@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+</head>
+
+<body>
+    <h1>Restaurante JS</h1>
+    <form>
+        <label>
+            Buffet por Quilo:
+            <input type="text" id="inValorQuilo" min="0" step="0.01">
+        </label>
+        <label>
+            Consumo de Cliente (gr):
+            <input type="text" id="inConsumoQuilo" min="0">
+        </label>
+
+        <input type="submit" value="Calcular Preço">
+    </form>
+
+
+    <h2 id="resposta"></h2>
+
+    <script>
+        const frm = document.querySelector('form');
+        const resultado = document.getElementById('resposta');
+
+        frm.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+
+            const valorQuilo = Number(frm.inValorQuilo.value);
+            const consumoQuilo = Number(frm.inConsumoQuilo.value);
+
+            const valorFinal = (consumoQuilo / 1000) * valorQuilo;
+
+            resultado.innerText = `Valor a pagar R$: ${valorFinal.toFixed(2)}`;
+        })
+    </script>
+</body>
+
+</html>
