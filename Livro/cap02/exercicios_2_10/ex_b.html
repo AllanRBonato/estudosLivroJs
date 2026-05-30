@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lan House Aeroporto JS</title>
+</head>
+<body>
+    <h1>Lan House Aeroporto JS</h1>
+
+    <form>
+        <label>
+            Valor por 15min de uso R$:
+            <input type="text" id="valor-por-tempo">
+        </label>
+        <label>
+            Tempo de uso do cliente:
+            <input type="text" id="tempo-do-cliente">
+        </label>
+
+        <input type="submit" value="Calcular valor a pagar">
+    </form>
+
+    <h3></h3>
+
+    <script>
+        const form = document.querySelector('form');
+        const inputValorDoTempo = document.getElementById('valor-por-tempo');
+        const inputTempoDoCliente = document.getElementById('tempo-do-cliente');
+        const resultado = document.querySelector('h3');
+
+        form.addEventListener('submit', (e)=> {
+            e.preventDefault();
+
+            const valorPorTempo = Number(inputValorDoTempo.value);
+            const tempoCliente = Number(inputTempoDoCliente.value);
+
+            const calculoTempo = Math.ceil(tempoCliente / 15);
+            const valorTotal = calculoTempo * valorPorTempo;
+
+            resultado.innerText = `Valor a pagar R$: ${valorTotal.toFixed(2)}`
+        })
+    </script>
+</body>
+</html>

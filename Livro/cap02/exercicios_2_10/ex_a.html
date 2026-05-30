@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia JS</title>
+</head>
+<body>
+    <h1>Farmácia JS</h1>
+
+    <form id="form-promocao">
+        <label>
+            Medicamento:
+            <input type="text" name="medicamento" id="input-medicamento">
+        </label>
+
+        <label>
+            Preço R$:
+            <input type="text" name="preco" id="input-preco">
+        </label>
+
+        <input type="submit" value="Mostrar Promoção">
+    </form>
+    
+    <h3 id="resultado-nome"></h3>
+    <h3 id="resultado-promocao"></h3>
+
+    <script>
+        const form = document.getElementById('form-promocao');
+        const inputMedicamento = document.getElementById('input-medicamento');
+        const inputPreco = document.getElementById('input-preco');
+        const resultadoNome = document.getElementById('resultado-nome');
+        const resultadoPromocao = document.getElementById('resultado-promocao');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nome = inputMedicamento.value;
+            const preco = Number(inputPreco.value);
+
+            const valorDesconto = Math.floor(preco * 2);
+
+            resultadoNome.innerText = `Promoção de ${nome}`;
+            resultadoPromocao.innerText = `Leve 2 por apenas R$: ${valorDesconto.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
