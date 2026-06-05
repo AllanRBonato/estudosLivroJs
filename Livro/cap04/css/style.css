@@ -1,0 +1,30 @@
+img {
+    float: left;
+    height: 300px;
+    width: 300px;
+}
+
+h1 {
+    border-bottom-style: inset;
+    color: rgb(65, 65, 65);
+}
+form {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 5px;
+}
+
+.botao {
+    width: 250px;
+    border-radius: 5px;
+} 
+
+.botao:hover {
+    background-color: black;
+    color: beige;
+    cursor: pointer;
+    border-radius: 5px;
+}
