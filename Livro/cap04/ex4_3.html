@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia</title>
+</head>
+
+<body>
+
+    <script>
+        const bairro = Number(prompt(`0 - centro\n1 - Fragata\n2 - Três Vendas\n3 - Laranjal\n4 - Outros\nEscolha o Bairro:`));
+
+        let nomeBairros = ['Centro', 'Fragata', 'Três Vendas', 'Laranjal', 'Outros'];
+
+        let taxaEntrega;
+
+        switch (bairro) {
+            case 0:
+                taxaEntrega = 5.00
+                break
+            case 1:
+            case 2:
+                taxaEntrega = 7.00
+                break
+            case 3:
+                taxaEntrega = 10.00
+                break
+            default:
+                taxaEntrega = 8.00
+        };
+
+        const nomeExibido = nomeBairros[bairro] || 'Outros';
+
+        alert(`Taxa de entrega para ${nomeExibido} é R$ ${taxaEntrega.toFixed(2)}`);
+
+    </script>
+</body>
+
+</html>
