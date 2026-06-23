@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notas</title>
+</head>
+<body>
+    <h1>Sistema de Notas</h1>
+
+    <form >
+
+        <label>
+            Digite a nota do aluno
+            <input type="text" id="nota_aluno" required min="0.1">
+        </label>
+
+        <input type="submit" value="Mostrar resultado">
+    </form>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        const form = document.querySelector('form')
+        const resposta = document.getElementById('resultado')
+
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const notaAluno = Number(form.nota_aluno.value)
+
+            if () {
+                
+            }
+        })
+    </script>
+</body>
+</html>
