@@ -12,5 +12,5 @@ form.addEventListener('submit', (e) => {
     for(let i = numero; i > 1; i--) {
         resposta = resposta + i + ', '
     }
-    resp.innerText = resposta + '1 ';
+    resp.innerText = resposta + '1.';
 })
