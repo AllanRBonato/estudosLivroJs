@@ -10,3 +10,6 @@
     !== dirferente estrito (valor e tipo)
 */
 
+// Sempre vai retornar um valor boleano pois é verdadeiro ou não 
+
+console.log(10 > 5);
