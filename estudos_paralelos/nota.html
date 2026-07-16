@@ -30,15 +30,15 @@
 
             const dados = form_nota.nota_digitada.value;
 
-            localStorage.setItem('nota_salva', JSON.stringify(dados));
+            localStorage.setItem('nota_salva', dados);
 
-            const recuperandoDados = JSON.parse(localStorage.getItem('nota_salva'));
+            const recuperandoDados = localStorage.getItem('nota_salva');
 
             resposta.innerText = dados;
             
         })
 
-        const recuperandoDados = JSON.parse(localStorage.getItem('nota_salva'));
+        const recuperandoDados = localStorage.getItem('nota_salva');
 
         if (recuperandoDados) {
             resposta.innerText = recuperandoDados;
