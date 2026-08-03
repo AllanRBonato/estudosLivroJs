@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .sumario {
+            display: flex;
+            flex-direction: row;
+            padding: 5%;
+            background: steelblue;
+        }
+
+        .coluna {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+            background: chocolate;
+            text-align: center;
+        }
+    </style>
+
+    <title>MTabela IMC</title>
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Tabela IMC</h1>
+        <di class="sumario">
+            <p class="coluna">
+                IMC
+                Menos do que 18,5
+                Entre 18,5 e 24,9
+                Entre 25 e 29,9
+                Entre 30 e 34,9
+                Entre 35 e 39,9
+                Mais do que 40
+            </p>
+            <p class="coluna">
+                Resultado
+                Abaixo do peso
+                Peso normal
+                Sobrepeso
+                Obesidade grau 1
+                Obesidade grau 2
+                Obsidade grau 3
+            </p>
+        </di>
+
+        <form>
+            <h1>Calcule seu IMC</h1>
+            <label for="input-teste-1">Peso:</label>
+            <input type="text" id="input_peso">
+
+            <label for="input-teste-2">Altura:</label>
+            <input type="text" id="input_altura">
+
+            <button>Enviar</button>
+        </form>
+        <h2 id="resultado"></h2>
+    </section>
+
+    <script>
+        const form = document.querySelector('form');
+        const resultado = document.getElementById('resultado');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const peso = Number(form.input_peso.value);
+            const altura = Number(form.input_altura.value);
+
+            const imc = peso / (altura * altura)
+
+            if (imc < 18.5) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Abaixo do peso)`
+                resultado.style.color = "darkOrange"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Peso normal)`
+                resultado.style.color = "darkGreen"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else if (imc >= 25 && imc <= 29.9) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Sobrepeso)`
+                resultado.style.color = "Gold"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else if (imc >= 30 && imc <= 34.9) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Obesidade grau 1)`
+                resultado.style.color = "Orange"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else if (imc >= 35 && imc <= 39.9) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Obesidade grau 2)`
+                resultado.style.color = "DarkOrange"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else if (imc <= 40) {
+                resultado.innerText = `Seu IMC é ${imc.toFixed(2)} (Obesidade grau 3)`
+                resultado.style.color = "DarkRed"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            } else {
+                resultado.innerText = `Peso ou Altura inválidas`
+                resultado.style.background = "Red"
+                resultado.style.color = "white"
+                resultado.style.fontSize = "20px"
+                resultado.style.textAlign = "center"
+            }
+        })
+    </script>
+</body>
+
+</html>
