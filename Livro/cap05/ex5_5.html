@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Programa Contas do mês</h1>
+
+    <form id="fomulario_contas">
+        <label>
+            <input type="text" id="input_dscricao">
+        </label>
+        <label>
+            <input type="number" id="input_valor" required>
+        </label>
+
+        <input type="submit" value="Registrar conta">
+    </form>
+
+    <pre id="saida_resposta1"></pre>
+    <pre id="saida_resposta2"></pre>
+
+    <script>
+        const formularioContas = document.getElementById('fomulario_contas');
+        const saidaResposta1 = document.getElementById('saida_resposta1');
+        const saidaResposta2 = document.getElementById('saida_resposta2');
+
+        let resposta = '';
+        let numeroDeContas = 0;
+        let valorTotal = 0;
+
+
+        formularioContas.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const descricao = formularioContas.input_dscricao.value;
+            const valor = Number(formularioContas.input_valor.value);
+
+            numeroDeContas++;
+            valorTotal = valorTotal + valor;
+            resposta = `${resposta + descricao} - R$: ${valor.toFixed(2)}\n`;
+            saidaResposta1.innerText = `${resposta} -----------------------`;
+            saidaResposta2.innerText = `${numeroDeContas} Conta(s) - Total R$: ${valorTotal.toFixed(2)}`;
+
+            formularioContas.input_dscricao.value = '';
+            formularioContas.input_valor.value = '';
+            formularioContas.focus();
+
+        })
+    </script>
+</body>
+
+</html>
