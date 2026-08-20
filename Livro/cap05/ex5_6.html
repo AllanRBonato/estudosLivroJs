@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+</head>
+<body>
+    <h1>Programa números primos</h1>
+    <form id="primos-form">
+        <label>
+            Número:
+            <input type="number" name="numeroInput" required>
+        </label>
+
+        <input type="submit" value="Verificar se é primo">
+    </form>
+
+    <pre id="mostra-resultado"></pre>
+
+    <script>
+        const frmPrimos = document.getElementById('primos-form');
+        const mostraResultado = document.getElementById('mostra-resultado');
+
+        frmPrimos.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const numero = Number(frmPrimos.numeroInput.value);
+
+            let numeroDiversos = 0;
+            
+            for (let i = 1; i <= numero; i++) {
+                if (numero % i ==0) {
+                    numeroDiversos++
+                }
+            }
+            if (numeroDiversos == 2) {
+                mostraResultado.innerText = `${numero} É primo`;
+            } else {
+                mostraResultado.innerText = `${numero} Não é primo`;
+            }
+        });
+    </script>
+</body>
+</html>

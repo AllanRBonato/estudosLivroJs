@@ -4,43 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./img/livrojs.png" type="image/x-icon">
+
     <title>Document</title>
 </head>
 
 <body>
     <h1>Programa Contas do mês</h1>
 
-    <form id="fomulario_contas">
+    <form id="fomulario-contas">
         <label>
             Descrição da conta:
-            <input type="text" id="input_dscricao">
+            <input type="text" name="descricaoInput">
         </label>
         <label>
             Valor a Pagar R$:
-            <input type="number" id="input_valor" required>
+            <input type="number" name="valorInput" required>
         </label>
 
         <input type="submit" value="Registrar conta">
     </form>
 
-    <pre id="saida_resposta1"></pre>
-    <pre id="saida_resposta2"></pre>
+    <pre id="saida-resposta1"></pre>
+    <pre id="saida-resposta2"></pre>
 
     <script>
-        const formularioContas = document.getElementById('fomulario_contas');
-        const saidaResposta1 = document.getElementById('saida_resposta1');
-        const saidaResposta2 = document.getElementById('saida_resposta2');
+        const frmContas = document.getElementById('fomulario-contas');
+        const saidaResposta1 = document.getElementById('saida-resposta1');
+        const saidaResposta2 = document.getElementById('saida-resposta2');
 
         let resposta = '';
         let numeroDeContas = 0;
         let valorTotal = 0;
 
-
-        formularioContas.addEventListener('submit', (e) => {
+        frmContas.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const descricao = formularioContas.input_dscricao.value;
-            const valor = Number(formularioContas.input_valor.value);
+            const descricao = frmContas.descricaoInput.value;
+            const valor = Number(frmContas.valorInput.value);
+
+            if (valor <= 0) {
+                alert('O valor a pagar precisa ser maior que zero.')
+                return
+            };
 
             numeroDeContas++;
             valorTotal = valorTotal + valor;
@@ -48,11 +55,10 @@
             saidaResposta1.innerText = `${resposta} -----------------------`;
             saidaResposta2.innerText = `${numeroDeContas} Conta(s) - Total R$: ${valorTotal.toFixed(2)}`;
 
-            formularioContas.input_dscricao.value = '';
-            formularioContas.input_valor.value = '';
-            formularioContas.focus();
-
-        })
+            frmContas.descricaoInput.value = '';
+            frmContas.valorInput.value = '';
+            frmContas.descricaoInput.focus();
+        });
     </script>
 </body>
 
