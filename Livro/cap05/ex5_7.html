@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabrica de Estrelas</title>
+
+    <link rel="shortcut icon" href="./img/livrojs.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Fábrica de Estrelas</title>
 </head>
 <body>
-    
+    <img src="./img/ex5_7.jpg" alt="Estrelas" class="normal">
+
+    <h1>Fábricas de Estrelas</h1>
+
+    <form id="frm-cria-estrelas">
+        <label>
+            Número de Símbolos:
+            <input type="number" name="numeroInput" min="1" required>
+        </label>
+
+        <input type="submit" value="Preencher com estrelas">
+    </form>
+
+    <h3 id="resultado-estrelas"></h3>
+
+    <script>
+        const frmEstrelas = document.getElementById('frm-cria-estrelas');
+        const mostraResultado = document.getElementById('resultado-estrelas');
+
+        frmEstrelas.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const numero = Number(frmEstrelas.numeroInput.value);
+
+            let estrelas = '';
+            for (let i = 1; i <= numero; i++) {
+                if (i % 2 == 1) {
+                    estrelas = estrelas + '*'
+                } else {
+                    estrelas = estrelas + '-'
+                }
+            }
+            mostraResultado.innerText = estrelas
+        })
+    </script>
 </body>
 </html>
