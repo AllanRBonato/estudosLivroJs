@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
 
-let tentativas = 1
+let tentativas = 0
 
 while (tentativas <= 3) {
 
@@ -8,8 +8,10 @@ while (tentativas <= 3) {
     let senha = prompt('digite a senha: ')
 
     tentativas ++
+    console.log(`tentativa ${tentativas}, faltam mais ${3 - tentativas}`);
     if (login == 'allan.bonato' && senha == 'colombo') {
         console.log('A senha esta correta!')
         break
     }
 }
+

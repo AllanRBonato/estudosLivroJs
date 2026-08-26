@@ -18,8 +18,22 @@ i++
 
 */
 
-const prompt = require('prompt-sync')();
+// const prompt = require('prompt-sync')();
 
-const totalAssentos = Number(prompt('Quantos assentos tem a fileira: '));
 
+
+// for (let i = 1; i <= 10; i++) {
+//     console.log(`7 x ${i} = ${7 * i}`);
+// }
+
+
+
+
+// for (let i = 1; i <= 10; i++) {
+//     if (i % 2 == 0) {
+//         console.log(`O número ${i} é par`);
+//     } else {
+//         console.log(`O número ${i} é impar`);
+//     }
+// }
 
