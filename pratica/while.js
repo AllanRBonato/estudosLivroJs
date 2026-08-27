@@ -39,21 +39,45 @@ const prompt = require('prompt-sync')();
 // }
 
 
-let somaValor = '';
-let quantidadeProduto = '';
-let opcao;
+// let somaValor = 0;
+// let quantidadeProduto = 0;
+// let opcao;
+
+// let listaProdutos = [];
+
+// do {
+//     opcao = prompt('Digite a opção: ');
+
+//     if (opcao == 1) {
+//         const produto = prompt('Digite o produto: ');
+//         const valor = Number(prompt('O valor desse produto: '));
+//         listaProdutos.push(produto);
+
+//         somaValor = somaValor + valor;
+//         quantidadeProduto++;
+//     }
+
+// } while (opcao != 0)
+
+// console.log(`\nLista de produtos comprados: ${listaProdutos}\n`);
+// console.log(`Fim da compra, o valor total dos ${quantidadeProduto} produtos é R$ ${somaValor.toFixed(2)}`);
+
+
+// Cofrinho:
+
+let soma = 0;
+
 
 do {
-    somaValor++
-    quantidadeProduto++
+    if (soma < 150) {
+        console.log('Faça depositos de: R$ 10; R$ 20; R$ 50\n');
+        const valorDepositado = Number(prompt('Digite o valor a depositar: '));
 
-    opcao = prompt('Digite a opção: ');
+        soma += valorDepositado;
 
-    if (opcao == 1) {
-        const produto = prompt('Digite o produto: ');
-        const valor = prompt('O valor desse produto: ');
+        console.log(`\nSoma até o momento: R$ ${soma}\n`);
     }
 
-} while (opcao != 0)
+} while (soma != 150);
 
-console.log(`Fim da compra, o valor total dos ${quantidadeProduto} produtos é R$ ${somaValor}`);
+console.log(`\nParabéns, tu atingiu o valor total de R$150,00`);
