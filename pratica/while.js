@@ -65,19 +65,72 @@ const prompt = require('prompt-sync')();
 
 // Cofrinho:
 
-let soma = 0;
+// let soma = 0;
+
+// do {
+//     console.log('Faça depositos de: R$ 10; R$ 20; R$ 50\n');
+//     const valorDepositado = Number(prompt('Digite o valor a depositar: '));
+
+//     soma += valorDepositado;
+
+//     console.log(`\nSoma até o momento: R$ ${soma}\n`);
+
+// } while (soma < 150);
 
 
-do {
-    if (soma < 150) {
-        console.log('Faça depositos de: R$ 10; R$ 20; R$ 50\n');
-        const valorDepositado = Number(prompt('Digite o valor a depositar: '));
+// if (soma == 150) {
+//     console.log(`\nParabéns, atingiu o valor desejado de R$ ${soma}`);
+// } else {
+//     console.log(`\nParabéns, atingiu mais que o valor desejado, R$ ${soma}`);
+// }
 
-        soma += valorDepositado;
+// quando se precisa colocar todo o código englobado dentro de um IF no seu laço é provavel a condição do IF pode ser a condição do laço. o proprio laço pode fazer a função sem precisar do IF.
 
-        console.log(`\nSoma até o momento: R$ ${soma}\n`);
+
+// for (let i = 10; i > 0; i--) {
+//     if (i % 2 == 1) {
+//         console.log(`Tempo: ${i}`);
+//     }
+// }
+
+// console.log('Booom');
+
+// for (let i = 1; i <= 15; i++) {
+//     if (i === 13) {
+//         continue
+//     }
+
+//     console.log(`Andar ${i}`);
+// }
+
+
+// const fatorial = Number(prompt('Digite um número: '))
+// let resultado = 1;
+
+// for (let i = fatorial; i > 0; i--) {
+//     console.log(resultado);
+//     resultado = resultado * i;
+// }
+// console.log(`O fatorial é: ${resultado}`);
+
+// FizBuzz
+
+for (let i = 1; i <= 50; i++) {
+    const divisorTres = i % 3 == 0;
+    const divisorCinco = i % 5 == 0;
+
+    if (divisorTres && divisorCinco) { // Começa com essa verificação pois se tivesse com o divisorTres ele ia escrever buzz, pois, por exemplo: 15 é divisivo por 3 e ele não ia ler a próxima condição e ia mostrar que era so buz sem passar para a condição é divisivel por 3 e 5.
+        console.log('FizzBuzz');
+    } else if (divisorTres) {
+        console.log('Fizz');
+    } else if (divisorCinco) {
+        console.log('Buzz');
+    } else {
+        console.log(i);
     }
+}
 
-} while (soma != 150);
 
-console.log(`\nParabéns, tu atingiu o valor total de R$150,00`);
+
+
+
