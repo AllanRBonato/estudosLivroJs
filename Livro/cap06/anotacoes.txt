@@ -1,0 +1,8 @@
+Existem alguns comandos para inclusão e exclusão de elementos de um vetor em js: 
+
+push() - adiciona um elemento ao final do vetor;
+unshift() - Adiciona um elemento ao ínicio do vetor e desloca os elementos existentes uma posição abaixo;
+pop() - Remove o último elemento do vetor;
+shift() - Remove o primeiro elemento do vetor e desloca os elementos existentes uma posição acima.
+
+
