@@ -14,32 +14,31 @@ const alunosReprovado = [];
 
 
 for (let i = 1; i <= 6; i++) {
+    console.log('\n');
     const aluno = prompt('Digite o nome do aluno: ');
     const nota = Number(prompt('Digite a nota do Aluno: '));
-
-    alunosAprovados.push(aluno);
-    alunosRecuperacao.push(aluno);
-    alunosReprovado.push(aluno);
-
 
     if (nota >= 7) {
         notaTotalAprovado = notaTotalAprovado + nota;
         quantidadeAprovado++;
-        console.log('\nvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
-        console.log(`Quantidade aprovado(s) ${quantidadeAprovado}\n${alunosAprovados}\nCom média 7`);
-        console.log(`Nota taotal dos alunos: ${notaTotalAprovado}`);
+        console.log('====> Passou!');
+        alunosAprovados.push(aluno);
     } else if (nota >= 5 && nota <= 6.9) {
         notaTotalRecuperacao = notaTotalRecuperacao + nota;
         quantidaderecuperacao++;
-        console.log('\n-----------------------------------------------------------');
-        console.log(`Quantidade em recuperação: ${quantidaderecuperacao}\n${alunosRecuperacao}\ncom média entre 5 e 6,9`);
-        console.log(`Nota total dos alunos: ${notaTotalRecuperacao}`);
+        console.log('====> Recuperação!');
+        alunosRecuperacao.push(aluno);
     } else {
         notaTotalReprovado = notaTotalReprovado + nota;
         quantidadeReprovado++;
-        console.log('\nX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X');
-        console.log(`Quantidade reprovado(s): ${quantidadeReprovado}\n${alunosReprovado}\ncom média menor que 5`);
-        console.log(`Nota total dos alunos: ${notaTotalReprovado}`);
+        console.log('====> Reprovado!');
+        alunosReprovado.push(aluno);
     }
 }
 
+console.log('\n');
+console.log('---------------------------------------------------------------------------------------');
+console.log(`\nTotal de alunos Aprovados: ${quantidadeAprovado}\nAlunos: ${alunosAprovados}`);
+console.log(`\nTotal de alunos em recuperação: ${quantidaderecuperacao}\nAlunos: ${alunosRecuperacao}`);
+console.log(`\nTotal de alunos reprovados: ${quantidadeReprovado}\nAlunos: ${alunosReprovado}`);
+console.log('\n---------------------------------------------------------------------------------------');
