@@ -4,8 +4,7 @@ let quantidadeProdutoCaro = 0;
 let quantidadeProdutoBarato = 0;
 let valorTotalCaro = 0;
 let valorTotalBarato = 0;
-let produtoCaros = '';
-let produtoBarato = '';
+
 
 const produtos = [];
 
@@ -38,3 +37,4 @@ for (let i = 1; i <= 5; i++) {
         console.log(`Valor total: ${valorTotalBarato.toFixed(2)}\n`);
     }
 }
+
