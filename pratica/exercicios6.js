@@ -19,7 +19,7 @@ do {
     }
 } while (opcao != 0);
 
-for (let i = 1; i <= estoque.length; i++) {
+for (let i = 0; i <= estoque.length; i++) {
 
     const produtos = estoque[i];
 

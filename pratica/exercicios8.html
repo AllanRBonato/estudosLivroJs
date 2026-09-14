@@ -19,9 +19,6 @@
     </label>
 
     <button id="adicionar">Adicionar</button>
-    <button>Excluir</button>
-    <button></button>
-    <button></button>
 
     <pre id="produtos"></pre>
     <pre id="valorTotal"></pre>
@@ -36,7 +33,7 @@
         const mostaValorTotal = document.getElementById('valorTotal');
 
         const carrinho = [];
-        let TotalCompra = 0;
+        let totalCompra = 0;
 
 
         btnEnviar.addEventListener('click', (e) => {
@@ -46,13 +43,28 @@
             const valor = Number(inputValor.value);
 
             carrinho.push(produtos);
-            TotalCompra = TotalCompra + valor;
+            totalCompra = totalCompra + valor;
 
+            inputProduto.value = '';
+            inputValor.value = '';
 
-            mostraProduto.innerText = `Produtos: ${carrinho}`;
-            mostaValorTotal.innerText = `Valor total: ${TotalCompra.toFixed(2)}`;
+            let valorFinal = 0;
+            let mensagemProduto = '';
+            let mensagemValor = '';
+
+            if (totalCompra > 100) {
+                valorFinal = totalCompra - (totalCompra * 0.10);
+                alert(`Valor produto: R$${valor.toFixed(2)}\nProduto passou de R$100,00, tem 10% de desconto.`);
+                mensagemProduto = `Produtos: ${carrinho}`;
+                mensagemValor = `Valor total: ${valorFinal.toFixed(2)}`;
+            } else {
+                mensagemProduto = `Produtos: ${carrinho}`;
+                mensagemValor = `Valor total: ${totalCompra.toFixed(2)}`;
+            }
+
+            mostraProduto.innerText = mensagemProduto;
+            mostaValorTotal.innerText = mensagemValor;
         });
-
     </script>
 </body>
 

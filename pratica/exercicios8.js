@@ -25,9 +25,9 @@ do {
 const listaNomes = carrinho.map(item => item.produto).join(', ');
 
 if (valorTotal > 100) {
-    const valorDesconto = valorTotal * 0.10;
-    console.log(`\nO valor total foi R$${valorDesconto.toFixed(2)}\nComo passou de R$100,00 ganhou 10% de desconto`);
-    console.log(`Produtos: ${listaNomes}\nValor total: R$${valorDesconto.toFixed(2)}`);
+    const valorFinal = valorTotal - (valorTotal * 0.10);
+    console.log(`\nO valor total foi R$${valorTotal.toFixed(2)}\nComo passou de R$100,00 ganhou 10% de desconto`);
+    console.log(`Produtos: ${listaNomes}\nValor total: R$${valorFinal.toFixed(2)}`);
 } else {
     console.log(`Produtos: ${listaNomes}\nValor total: R$${valorTotal.toFixed(2)}`);
 }
