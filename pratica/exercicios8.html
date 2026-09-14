@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de compras</title>
+</head>
+
+<body>
+    <h1>Carrinho</h1>
+    <label>
+        Produto:
+        <input type="text" id="nomeProduto">
+    </label>
+    <label>
+        Valor:
+        <input type="text" id="valorProduto">
+    </label>
+
+    <button id="adicionar">Adicionar</button>
+    <button>Excluir</button>
+    <button></button>
+    <button></button>
+
+    <pre id="produtos"></pre>
+    <pre id="valorTotal"></pre>
+
+    <script>
+        const inputProduto = document.getElementById('nomeProduto');
+        const inputValor = document.getElementById('valorProduto');
+
+        const btnEnviar = document.getElementById('adicionar');
+
+        const mostraProduto = document.getElementById('produtos');
+        const mostaValorTotal = document.getElementById('valorTotal');
+
+        const carrinho = [];
+        let TotalCompra = 0;
+
+
+        btnEnviar.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const produtos = inputProduto.value;
+            const valor = Number(inputValor.value);
+
+            carrinho.push(produtos);
+            TotalCompra = TotalCompra + valor;
+
+
+            mostraProduto.innerText = `Produtos: ${carrinho}`;
+            mostaValorTotal.innerText = `Valor total: ${TotalCompra.toFixed(2)}`;
+        });
+
+    </script>
+</body>
+
+</html>
