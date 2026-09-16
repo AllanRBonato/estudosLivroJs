@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG</title>
+</head>
+
+<body>
+    <label>
+        Usuário:
+        <input type="text" id="inputUsuario">
+    </label>
+    <label>
+        Pesquisa:
+        <input type="text" id="inputPesquisa">
+    </label>
+    <button id="pesquisar">Pesquisar</button>
+
+    <pre id="log"></pre>
+
+    <script>
+        const inputUsuarios = document.getElementById('inputUsuario');
+        const inputPesquisa = document.getElementById('inputPesquisa');
+        const btnPesquisar = document.getElementById('pesquisar');
+        const resultadoLog = document.getElementById('log');
+
+
+        const usuarios = [];
+        const log = [];
+
+        function atualizarLista() {
+            let listaUsuario = '';
+            let listaPesquisa = '';
+
+            usuarios.forEach((usuarios) => {
+                listaUsuario = usuarios;
+            });
+            log.forEach((log) => {
+                listaPesquisa = log;
+            })
+            resultadoLog.innerText += `[LOG] - Usuário - {${listaUsuario}} - Pesquisou - {${listaPesquisa}}\n`;
+        }
+
+        btnPesquisar.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (inputPesquisa.value == '' || inputUsuarios.value == '') {
+                alert('Precisa escrever nos campos');
+                return
+            }
+
+            const usuario = inputUsuarios.value;
+            const pesquisa = inputPesquisa.value;
+            usuarios.push(usuario);
+            log.push(pesquisa);
+            atualizarLista();
+        });
+    </script>
+</body>
+
+</html>

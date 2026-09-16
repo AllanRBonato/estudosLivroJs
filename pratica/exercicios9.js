@@ -3,7 +3,7 @@ const logs = ['ERRO', 'INFO', 'AVISO', 'ERRO', 'ERRO', 'INFO', 'AVISO'];
 const logsCriticos = [];
 let aviso = 0;
 
-for (let i = 0; i <= logs.length; i++) {
+for (let i = 0; i < logs.length; i++) {
     const avisos = logs[i];
 
     if (avisos === 'ERRO') {
