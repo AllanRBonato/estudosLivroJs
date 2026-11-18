@@ -1,0 +1,231 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Menu de Navegação / Header Superior */
+header {
+    background: #ffffff;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #228be6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a.ativo {
+    background-color: #e7f5ff;
+    color: #228be6;
+}
+
+/* Títulos das Seções */
+h1 {
+    font-size: 1.25rem;
+    color: #212529;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+/* Blocos / Cartões (Formulários, Cadastros e Seções) */
+form, 
+div#cadastro_visitante, 
+div#cadastro_produto, 
+div#cadastrar_venda, 
+div#mostrar_vendas, 
+div#mostra_vendas {
+    background: #ffffff;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Rótulos e Campos de Entrada */
+label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="datetime"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #4dabf7;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.15);
+}
+
+/* Área de Habilitação (Checkboxes) */
+#habilitacao_sim_nao {
+    margin: 15px 0;
+    font-weight: 600;
+    color: #495057;
+}
+
+#habilitacao_sim_nao label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+/* Botões */
+button, input[type="submit"] {
+    background-color: #228be6;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-top: 8px;
+    margin-right: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #1c7ed6;
+}
+
+button:active, input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Divisores */
+hr {
+    border: none;
+    border-top: 1px solid #e9ecef;
+    margin: 20px 0;
+}
+
+/* Áreas de Texto / Resultados (<pre>) */
+pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    font-family: inherit;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+/* Classe utilitária para ocultar elementos */
+.oculto {
+    display: none !important;
+}
+
+
+/* ==========================================
+   ESTILOS DA TABELA E SCROLL INTERNO
+   ========================================== */
+
+/* Container com rolagem interna e altura controlada */
+.tabela-container-scroll {
+    max-height: 220px; /* Limita a altura para não esticar a página */
+    overflow-y: auto;  /* Ativa o scroll vertical automático */
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+/* Estrutura geral da tabela */
+.tabela-cadastros {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Estilo dos cabeçalhos (th) com efeito fixo no topo ao rolar */
+.tabela-cadastros th {
+    position: sticky;
+    top: 0;
+    background-color: #212529; /* Tom escuro harmônico com os títulos do site */
+    color: #ffffff;
+    padding: 12px 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    z-index: 1;
+}
+
+/* Estilo das células (td) com divisórias claras */
+.tabela-cadastros td {
+    padding: 10px 14px;
+    color: #495057;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Efeito de destaque ao passar o mouse na linha */
+.tabela-cadastros tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Botão de ação (Editar) dentro da tabela */
+.btn-acao-tabela {
+    background-color: #228be6;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    margin: 0; /* Remove margens extras herdadas do botão global */
+}
+
+.btn-acao-tabela:hover {
+    background-color: #1c7ed6;
+}

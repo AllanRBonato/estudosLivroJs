@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>MC</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-area">
+            <span>MC Painel</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="testeMC.html" class="ativo">Cadastros</a></li>
+                <li><a href="venda.html">Vendas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cadastrar integrante -->
+    <form id="cadastro_integrante">
+        <h1>Cadatrar Integrante</h1>
+
+        <label>
+            Procurar Integrante:
+            <input type="search" id="input_procurar_integrante_cadastro">
+        </label>
+
+        <button id="btn_procurar_integrante_cadastro">Procurar</button>
+
+        <hr>
+
+        <label>
+            Integrante (Nome):
+            <input type="text" id="nome_integrante" placeholder="Nome e Sobrenome...">
+        </label>
+
+        <label>
+            Data de nascimento:
+            <input type="datetime" id="data_nascimento_integrante" placeholder="Data de nascimento...">
+        </label>
+
+        <label>
+            Endereço:
+            <input type="text" id="endereco_integrante" placeholder="Rua ...">
+        </label>
+
+        <label>
+            Telefone:
+            <input type="text" id="telefone_integrante" placeholder="41 ....">
+        </label>
+
+        <div id="habilitacao_sim_nao">
+            Possui habilitação válida:
+            <label>
+                Sim: <input type="checkbox" id="habilitacao_sim" value="Sim">
+            </label>
+            <label>
+                Não: <input type="checkbox" id="habilitacao_nao" value="Não">
+            </label>
+        </div>
+
+        <label>
+            Nível MC:
+            <input type="text" id="nivel_integrante" placeholder="Colete Fechado">
+        </label>
+
+
+        <input type="submit" value="Salvar Cliente">
+        <button id="">Editar integrante</button>
+        <button id="">Excluir integrante</button>
+
+        <hr>
+
+        <div id="cadastrados_integrante"></div>
+    </form>
+
+    <!-- Cadastrar visitante  -->
+    <div id="cadastro_visitante">
+        <h1>Cadastrar Visitante</h1>
+
+        <label>
+            Procurar Visitante:
+            <input type="search" id="input_procurar_visitante_cadastro">
+        </label>
+
+        <button id="btn_procurar_visitante_cadastro">Procurar</button>
+
+        <hr>
+
+        <label>
+            Nome visitante:
+            <input type="text" id="nome_visitante" placeholder="Boinas">
+        </label>
+
+        <label>
+            Telefone:
+            <input type="text" id="telefone_visitante" placeholder="41 ...">
+        </label>
+
+        <button id="cadastrar_visitante">Cadastrar visitante</button>
+        <button>Editar visitante</button>
+        <button>Excluir visitante</button>
+        
+        <hr>
+
+        <div id="cadastrados_visitantes"></div>
+    </div>
+
+    <!-- Cadastrar Pdoruto -->
+
+    <div id="cadastro_produto">
+
+        <h1>Cadastrar Produto</h1>
+
+        <label>
+            Procurar Produto:
+            <input type="search" id="input_procurar_produto_cadastro">
+        </label>
+
+        <button id="btn_procurar_produto_cadastro">Procurar</button>
+
+        <hr>
+
+        <label>
+            Produto:
+            <input type="text" id="nome_produto" required placeholder="cerveja Brahma">
+        </label>
+
+        <label>
+            Quantidade:
+            <input type="number" id="quantidade_produto">
+        </label>
+
+        <label>
+            Valor R$:
+            <input type="number" id="valor_produto" required min="0.01">
+        </label>
+
+
+        <button id="cadastrar_produto">Cadastrar Produto</button>
+        <button>Excluir produto</button>
+        <button>Editar produto</button>
+                
+        <hr>
+
+        <div id="cadastrados_produtos"></div>
+    </div>
+
+    <script src="./testeMC.js"></script>
+</body>
+
+</html>
