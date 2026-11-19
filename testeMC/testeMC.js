@@ -1,19 +1,30 @@
 const cadastroIntegrante = document.getElementById('cadastro_integrante');
 const cadastrarVisitante = document.getElementById('cadastrar_visitante');
 const cadastrarProduto = document.getElementById('cadastrar_produto');
+
 const btnProcurarIntegranteCadastro = document.getElementById('btn_procurar_integrante_cadastro');
 const btnProcurarVisitanteCadastro = document.getElementById('btn_procurar_visitante_cadastro');
 const btnProcurarProdutoCadastro = document.getElementById('btn_procurar_produto_cadastro');
 
-// Elementos de Habilitação
-const checkSim = document.getElementById('habilitacao_sim');
-const checkNao = document.getElementById('habilitacao_nao');
+const editarIntegrante = document.getElementById('editar_integrante');
+const excluirIntegrante = document.getElementById('excluir_integrante');
+
+const agora = new Date();
 
 // Arrays -----------
 const cadIntegrante = [];
 const cadVisitantes = [];
 const cadProduto = [];
 const historicoVenda = [];
+
+// ----------------------------------------------------------------------------
+// ---------------------------       INTEGRANTES      -------------------------
+// ----------------------------------------------------------------------------
+
+// Elementos de Habilitação
+const checkSim = document.getElementById('habilitacao_sim');
+const checkNao = document.getElementById('habilitacao_nao');
+
 
 // Habilitação sim e não --------------------------------------------
 function configurarCheckboxHabilitacao() {
@@ -31,6 +42,7 @@ function lerValorHabilitacao() {
     if (checkNao.checked) return 'Não';
     return 'Não informado';
 };
+
 
 // Criar tabela de integrantes já cadastrados
 function renderizarTabelaIntegrantes() {
@@ -51,7 +63,7 @@ function renderizarTabelaIntegrantes() {
                 <th>Telefone</th>
                 <th>Habilitação</th>
                 <th>Nível MC</th>
-                <th></th>
+                <th>Ação</th>
             </tr>
         </thead>
         <tbody>
@@ -67,7 +79,7 @@ function renderizarTabelaIntegrantes() {
                 <td>${integrante.habilitacao}</td>
                 <td>${integrante.nivelMc}</td>
                 <td>
-                    <button type="button" class="btn-acao-tabela" onclick="preencherVisitanteEdicao(${index})">Editar</button>
+                    <button type="button" class="btn-acao-tabela" onclick="preencherIntegranteEdicao(${index})">Editar</button>
                 </td>
             </tr>
         `;
@@ -79,6 +91,23 @@ function renderizarTabelaIntegrantes() {
     `;
 
     divContainer.innerHTML = htmlTabela;
+}
+
+function preencherIntegranteEdicao(index) {
+    const integrante = cadIntegrante[index];
+    document.getElementById('nome_integrante').value = integrante.nome;
+    document.getElementById('data_nascimento_integrante').value = integrante.dataNascimento;
+    document.getElementById('endereco_integrante').value = integrante.endereco;
+    document.getElementById('telefone_integrante').value = integrante.telefone;
+    document.getElementById('nivel_integrante').value = integrante.nivelMc;
+
+    if (integrante.habilitacao === 'Sim') {
+        checkSim.checked = true;
+        checkNao.checked = false;
+    } else {
+        checkNao.checked = true;
+        checkSim.checked = false;
+    }
 }
 
 // Cadastrar integrante --------------------------------------------
@@ -109,7 +138,7 @@ cadastroIntegrante.addEventListener('submit', (e) => {
         endereco: enderecoIntegrante.value,
         telefone: Number(telefoneIntegrante.value),
         habilitacao: lerValorHabilitacao(),
-        nivelMc: nivelMc.value
+        nivelMc: nivelMc.value,
     };
 
     const jaExiste = cadIntegrante.some(item => item.nome.toLowerCase() === novoUsuario.nome.toLowerCase());
@@ -174,6 +203,24 @@ btnProcurarIntegranteCadastro.addEventListener('click', (e) => {
     inptProcurarIntegranteCadastro.value = '';
 });
 
+editarIntegrante.addEventListener('click', (e) => {
+    e.preventDefault();
+
+
+
+});
+
+
+excluirIntegrante.addEventListener('click', (e) => {
+    e.preventDefault();
+
+
+})
+
+// ----------------------------------------------------------------------------
+// ---------------------------       VISITANTES      --------------------------
+// ----------------------------------------------------------------------------
+
 // Criar tabela de visitantes já cadastrados
 function renderizarTabelaVisitantes() {
     const divContainer = document.getElementById('cadastrados_visitantes');
@@ -215,6 +262,14 @@ function renderizarTabelaVisitantes() {
     `;
 
     divContainer.innerHTML = htmlTabela;
+}
+
+// preencher input do botão editar
+function preencherVisitanteEdicao(index) {
+    const visitante = cadVisitantes[index];
+
+    document.getElementById('nome_visitante').value = visitante.nome;
+    document.getElementById('telefone_visitante').value = visitante.telefone;
 }
 
 
@@ -274,7 +329,11 @@ btnProcurarVisitanteCadastro.addEventListener('click', (e) => {
     inptProcurarVisitanteCadastro.value = '';
 });
 
-// Criar tabela de visitantes já cadastrados
+// ----------------------------------------------------------------------------
+// ---------------------------       PRODUTOS      ----------------------------
+// ----------------------------------------------------------------------------
+
+// Criar tabela de produtos já cadastrados
 function renderizarTabelaProdutos() {
     const divContainer = document.getElementById('cadastrados_produtos');
 
@@ -290,8 +349,10 @@ function renderizarTabelaProdutos() {
                     <tr>
                         <th>Produto</th>
                         <th>Quantidade</th>
-                        <th>Valor R$</th>
-                        <th></th>
+                        <th>Valor unidade R$</th>
+                        <th>Valor total</th>
+                        <th>Data de Entrada</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -303,6 +364,8 @@ function renderizarTabelaProdutos() {
                 <td>${prod.produto}</td>
                 <td>${prod.quantidade}</td>
                 <td>R$ ${prod.valor.toFixed(2)}</td>
+                <td>R$ ${prod.valorTotal.toFixed(2)}</td>
+                <td>${prod.criadoEm}</td>
                 <td>
                     <button type="button" class="btn-acao-tabela" onclick="preencherProdutoEdicao(${index})">Editar</button>
                 </td>
@@ -319,6 +382,17 @@ function renderizarTabelaProdutos() {
     divContainer.innerHTML = htmlTabela;
 }
 
+// preencher input do botão editar
+function preencherProdutoEdicao(index) {
+    const produto = cadProduto[index];
+
+    document.getElementById('nome_produto').value = produto.produto;
+    document.getElementById('quantidade_produto').value = produto.quantidade;
+    document.getElementById('valor_produto').value = produto.valor;
+}
+
+
+
 // Cadastrar produto --------------------------------------------
 cadastrarProduto.addEventListener('click', (e) => {
     e.preventDefault();
@@ -328,17 +402,31 @@ cadastrarProduto.addEventListener('click', (e) => {
     const quantidadeProduto = document.getElementById('quantidade_produto');
     const valorProduto = document.getElementById('valor_produto');
 
+    if (nomeProduto.value === '' || quantidadeProduto.value === '' || valorProduto.value === '') {
+        alert('Por favor, preencha todos os campos!');
+        return;
+    }
+
+    const qnt = Number(quantidadeProduto.value);
+    const valorProd = Number(valorProduto.value);
+
+    const valorTotalProdutos = qnt * valorProd;
+
+    console.log(valorTotalProdutos);
+
+
     const novoProduto = {
         produto: nomeProduto.value,
-        quantidade: Number(quantidadeProduto.value),
-        valor: Number(valorProduto.value)
+        quantidade: qnt,
+        valor: valorProd,
+        valorTotal: valorTotalProdutos,
+        criadoEm: agora.toLocaleString('pt-BR')
     };
+
 
     const jaExiste = cadProduto.some(item => item.produto.toLowerCase() === novoProduto.produto.toLowerCase());
 
-    if (nomeProduto.value === '' || quantidadeProduto.value === '' || valorProduto.value === '') {
-        alert('Por favor, preencha todos os campos!');
-    } else if (jaExiste) {
+    if (jaExiste) {
         alert('Este cadastro já existe!')
     } else {
         cadProduto.push(novoProduto);
@@ -378,7 +466,5 @@ btnProcurarProdutoCadastro.addEventListener('click', (e) => {
 
     inptProcurarProdutoCadastro.value = '';
 });
-
-
 
 configurarCheckboxHabilitacao();

@@ -19,6 +19,7 @@
             <ul>
                 <li><a href="testeMC.html" class="ativo">Cadastros</a></li>
                 <li><a href="venda.html">Vendas</a></li>
+                <li><a href="estoque.html">Controle Estoque</a></li>
             </ul>
         </nav>
     </header>
@@ -73,8 +74,8 @@
 
 
         <input type="submit" value="Salvar Cliente">
-        <button id="">Editar integrante</button>
-        <button id="">Excluir integrante</button>
+        <button id="editar_integrante">Editar integrante</button>
+        <button id="excluir_integrante">Excluir integrante</button>
 
         <hr>
 
@@ -107,7 +108,7 @@
         <button id="cadastrar_visitante">Cadastrar visitante</button>
         <button>Editar visitante</button>
         <button>Excluir visitante</button>
-        
+
         <hr>
 
         <div id="cadastrados_visitantes"></div>
@@ -139,7 +140,7 @@
         </label>
 
         <label>
-            Valor R$:
+            Valor unidade R$:
             <input type="number" id="valor_produto" required min="0.01">
         </label>
 
@@ -147,7 +148,7 @@
         <button id="cadastrar_produto">Cadastrar Produto</button>
         <button>Excluir produto</button>
         <button>Editar produto</button>
-                
+
         <hr>
 
         <div id="cadastrados_produtos"></div>
