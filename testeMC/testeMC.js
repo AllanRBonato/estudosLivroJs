@@ -141,6 +141,8 @@ cadastroIntegrante.addEventListener('submit', (e) => {
         nivelMc: nivelMc.value,
     };
 
+    console.log(totalIntegrantes);
+
     const jaExiste = cadIntegrante.some(item => item.nome.toLowerCase() === novoUsuario.nome.toLowerCase());
 
 
@@ -236,8 +238,9 @@ function renderizarTabelaVisitantes() {
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Clube Visitante</th>
                         <th>Telefone</th>
-                        <th></th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -247,6 +250,7 @@ function renderizarTabelaVisitantes() {
         htmlTabela += `
             <tr>
                 <td>${visitante.nome}</td>
+                <td>${visitante.clubeVisitante}</td>
                 <td>${visitante.telefone}</td>
                 <td>
                     <button type="button" class="btn-acao-tabela" onclick="preencherVisitanteEdicao(${index})">Editar</button>
@@ -279,10 +283,12 @@ cadastrarVisitante.addEventListener('click', (e) => {
 
     // Lista de DOM cadastro visitante --------------------------------------
     const nomeVisitante = document.getElementById('nome_visitante');
+    const clubeVisitante = document.getElementById('clube_visitante');
     const telefoneVisitante = document.getElementById('telefone_visitante');
 
     const novoVisitante = {
         nome: nomeVisitante.value,
+        clubeVisitante: clubeVisitante.value,
         telefone: Number(telefoneVisitante.value)
     };
 
